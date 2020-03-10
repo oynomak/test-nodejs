@@ -28,19 +28,32 @@ const port = 3000;
 var fs = require("fs");
 
 /* Creates a new User to be added to the list of Users */
-
+var user = {
+   "user4" : {
+      "name" : "mohit",
+      "password" : "password4",
+      "profession" : "teacher",
+      "id": 4
+   }
+}
 
 /* CRUD manipulation (READ, CREATE, GETbyID/UPDATE, DELETE) */
 http.createServer(function (request, response) {
 
 	if(request.url ==='/listUsers'){
-		
+		//Reading the existing list of Users...
 		fs.readFile("users.json", 'utf8', function (err, data) {
-	    console.log( data );
-	    response.end( data );
-    });
+		    console.log( data );
+		    response.end( data );
+    	});
 	}else if (request.url ==='/addUser') {
-		
+		// First read existing users.
+   	    fs.readFile("users.json", 'utf8', function (err, data) {
+	        data = JSON.parse( data );
+	        data["user4"] = user["user4"];
+	        console.log( data );
+	        response.end( JSON.stringify(data));
+	    });
 	}else if (request.url ==='/:id') {
 		
 	}else if (request.url ==='/deleteUser') {
