@@ -42,7 +42,8 @@ http.createServer(function (request, response) {
 	}else if (request.url ==='/deleteUser') {
 		
 	}else if (request.url ==='/') {
-		
+		response.write('<h1>Hello World!<h1>'); //write a response
+    	response.end();
 	}else{
 		response.write("<h1>HTTP - 404</h1><p>Bad Request!</p>"); //write a error response
     	response.end(); //end the response
