@@ -34,9 +34,13 @@ var fs = require("fs");
 http.createServer(function (request, response) {
 
 	if(request.url ==='/listUsers'){
-
+		
+		fs.readFile("users.json", 'utf8', function (err, data) {
+	    console.log( data );
+	    response.end( data );
+    });
 	}else if (request.url ==='/addUser') {
-
+		
 	}else if (request.url ==='/:id') {
 		
 	}else if (request.url ==='/deleteUser') {
