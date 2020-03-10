@@ -47,16 +47,30 @@ http.createServer(function (request, response) {
 		    response.end( data );
     	});
 	}else if (request.url ==='/addUser') {
-		// First read existing users.
+		// First read existing users, then add new one
    	    fs.readFile("users.json", 'utf8', function (err, data) {
 	        data = JSON.parse( data );
 	        data["user4"] = user["user4"];
 	        console.log( data );
 	        response.end( JSON.stringify(data));
 	    });
-	}else if (request.url ==='/:id') {
-		
+	}else if (request.url ==='/:id') {// Check if we can get this parameter here... I am not getting it... :(
+		// First read existing users, then get the specific one
+	    fs.readFile("users.json", 'utf8', function (err, data) {
+	        var users = JSON.parse( data );
+	        var user = users["user" + request.params.id];
+	        console.log( user );
+	        response.end( JSON.stringify(user));
+	    });
 	}else if (request.url ==='/deleteUser') {
+		// First read existing users, then delete the User2
+	    fs.readFile("users.json", 'utf8', function (err, data) {
+	        data = JSON.parse( data );
+	        delete data["user" + 2];
+	       
+	        console.log( data );
+	        response.end( JSON.stringify(data));
+	    });
 		
 	}else if (request.url ==='/') {
 		response.write('<h1>Hello World!<h1>'); //write a response
