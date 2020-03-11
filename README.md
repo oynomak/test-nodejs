@@ -65,5 +65,5 @@ Based on this information we are going to provide following RESTful APIs.
 I'm keeping most of the part of all the examples in the form of hard coding assuming you already know how to pass values from front end using Ajax or simple form data and how to process them using express Request object.
 
 ### Source: 
-    - _https://www.tutorialspoint.com/nodejs/nodejs_restful_api.htm_
-    - _https://www.freecodecamp.org/news/cjn-understanding-hello-world-in-nodejs/_
+    - https://www.tutorialspoint.com/nodejs/nodejs_restful_api.htm
+    - https://www.freecodecamp.org/news/cjn-understanding-hello-world-in-nodejs/
